@@ -1,6 +1,6 @@
 {
-	"name": "coalition",
-	"description": "Build a personal website, blog, or portfolio with Astro.",
+	"name": "up-shoreline-public-access-coalition",
+	"description": "Coalition website.",
 	"cloudflare": {
 		"label": "Astro Framework Starter",
 		"products": [
