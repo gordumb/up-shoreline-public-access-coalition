@@ -4,55 +4,129 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/proposals">Proposals</HeaderLink>
-			<HeaderLink href="/get-involved">Get Involved</HeaderLink>
-			<HeaderLink href="/safety">Safety</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-			<HeaderLink href="/resources">Resources</HeaderLink>
-		</div>
-	</nav>
-</header>
-<style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
+    <nav>
+        <h2><a href="/">{SITE_TITLE}</a></h2>
+        
+        <button id="menu-toggle" aria-label="Menu" aria-expanded="false">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+        <div class="nav-links" id="nav-menu">
+            <HeaderLink href="/proposals">Proposals</HeaderLink>
+            <HeaderLink href="/get-involved">Get Involved</HeaderLink>
+            <HeaderLink href="/safety">Safety</HeaderLink>
+            <HeaderLink href="/about">About</HeaderLink>
+            <HeaderLink href="/resources">Resources</HeaderLink>
+        </div>
+    </nav>
+</header>
+
+<style>
+    header {
+        padding: 0 1rem;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        position: relative;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 1rem; /* Gap between title and nav/hamburger */
+    }
+    h2 { 
+        font-size: 1.25rem; 
+        margin: 0; 
+        padding: 1rem 0; /* Add padding to keep the header height consistent when wrapping */
+        line-height: 1.2;
+        /* Let the title take up available space and wrap */
+        flex: 1; 
+    }
+    h2 a { text-decoration: none; color: inherit; display: block; }
+
+    /* Desktop Links */
+    .nav-links { 
+        display: flex; 
+        gap: 1rem; 
+        flex-shrink: 0; 
+    }
+    .nav-links a {
+        padding: 1rem 0.5rem;
+        text-decoration: none;
+        color: var(--black);
+        border-bottom: 4px solid transparent;
+        white-space: nowrap; 
+    }
+    .nav-links a.active { border-bottom-color: var(--accent); }
+
+    #menu-toggle { 
+        display: none; 
+        padding: 0.5rem; 
+        background: none; 
+        border: none; 
+        cursor: pointer; 
+        color: inherit;
+        flex-shrink: 0; /* Ensures the button doesn't get squished by a long title */
+    }
+
+    @media (max-width: 920px) {
+        #menu-toggle { display: block; }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%; left: 0; width: 100%;
+            background: white;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .nav-links.show { display: flex; }
+        
+        .nav-links a { 
+            width: 100%; 
+            text-align: center; 
+            border: none;
+            white-space: normal; 
+        }
+    }
 </style>
+
+<script>
+    function initMenu() {
+        const btn = document.getElementById('menu-toggle');
+        const menu = document.getElementById('nav-menu');
+        
+        if (!btn || !menu) return;
+
+        const toggle = (forceClose) => {
+            const isExpanding = forceClose === true ? false : btn.getAttribute('aria-expanded') !== 'true';
+            btn.setAttribute('aria-expanded', String(isExpanding));
+            menu.classList.toggle('show', isExpanding);
+        };
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggle();
+        });
+
+        document.addEventListener('click', (e) => {
+            const target = e.target as HTMLElement;
+            if (menu.classList.contains('show') && !menu.contains(target) && !btn.contains(target)) {
+                toggle(true);
+            }
+        });
+    }
+
+    initMenu();
+    document.addEventListener('astro:after-swap', initMenu);
+</script>
