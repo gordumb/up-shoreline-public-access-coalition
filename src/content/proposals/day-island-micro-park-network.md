@@ -4,4 +4,11 @@ description: "Adopt the public spaces on Day Island as a walkable network of mic
 pubDate: "Jul 08 2022"
 ---
 
-TODO
+## Background
+
+Day Island 
+
+![](../../assets/day-island-micro-park-network/right-of-way.jpg)
+
+## Proposal
+

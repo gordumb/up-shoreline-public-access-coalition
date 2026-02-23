@@ -1,0 +1,106 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const currentDate = Date.now();
+const allEvents = (await getCollection('events')).sort(
+	(a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf(),
+);
+const pastEvents = allEvents.filter(e => e.data.eventDate.valueOf() < currentDate.valueOf());
+const futureEvents = allEvents.filter(e => e.data.eventDate.valueOf() >= currentDate.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				width: 960px;
+			}
+			ul {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 2rem;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			ul li {
+				width: calc(50% - 1rem);
+			}
+			ul li * {
+				text-decoration: none;
+				transition: 0.2s ease;
+			}
+			ul li a {
+				display: block;
+			}
+			.title {
+				margin: 0;
+				color: rgb(var(--black));
+				line-height: 1;
+			}
+			.date {
+				margin: 0;
+				color: rgb(var(--gray));
+			}
+			ul li a:hover h4,
+			ul li a:hover .date {
+				color: rgb(var(--accent));
+			}
+			@media (max-width: 720px) {
+				ul {
+					gap: 0.5em;
+				}
+				ul li {
+					width: 100%;
+					text-align: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h3>Events</h3>
+			<section>
+				<ul>
+					{
+						futureEvents.map((e) => (
+							<li>
+								<a href={`/get-involved/${e.id}/`}>
+									<h4 class="title">{e.data.eventType}</h4>
+									<p class="date">
+										<FormattedDate date={e.data.eventDate} />
+									</p>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+			<h3>Join</h3>
+
+			<p>
+				If you want to become a member of this coalition, please email Gordon at <a href="mailto:up-shoreline-public-access@protonmail.com">up-shoreline-public-access@protonmail.com</a>.
+				There are no required obligations for members, but if you want to share ideas or keep up to date then joining is a good idea.
+			</p>
+
+			<h4>Dress Code</h4>
+
+			<p>
+				This coalition embodies an anti-consumption mindset, meaning we will not produce any merchandise.
+				No pressure, but if you want to comply with a coalition dress code when we gather then please wear your best sea loving attire.
+				If you don't have anything, consider keeping an eye out when thrift shopping!
+				Clothes with sea life, waves, maps, or whatever else makes you happy about the sea.
+				Also, sun protection is important so keep that in mind.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
