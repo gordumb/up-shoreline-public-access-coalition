@@ -19,6 +19,8 @@ Consider this to be a directory of resources that coalition members might want t
         * Assist marine shoreline landowners make informed decisions about managing their shorelines in a way that is environmentally friendly.
     * [Chambers Bay Estuary Restoration](https://www.piercecountywa.gov/7717/Chambers-Bay-Estuary-Restoration)
         * Project to restore Chambers Bay for Salmon.
+    * [Day Island Sewer System Replacement](https://www.piercecountywa.gov/7899/Day-Island-Sewer-System-Replacement)
+        * Rising sea levels are forcing Pierce County to relocate the sewer system for Day Island properties.
     * [Orca Network](https://www.orcanetwork.org/)
         * Tracks whale sightings in the Salish Sea.
     * [Center for Urban Waters](https://www.urbanwaters.org/)
