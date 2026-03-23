@@ -25,6 +25,7 @@ Consider this to be a directory of resources that coalition members might want t
         * Tracks whale sightings in the Salish Sea.
     * [Center for Urban Waters](https://www.urbanwaters.org/)
         * Developing creative and sustainable solutions to restore and protect Puget Sound.
+    * [Cascadia Marine Trail](https://www.wwta.org/water-trails/cascadia-marine-trail/)
 * **Legal Stuff**
     * [City of Univeristy Place Master Shoreline Program](https://fortress.wa.gov/ecy/ezshare/SEA/FinalSMPs/PierceCounty/UnivPlace/UnivPlaceSMPSept2016.pdf)
         * Dense content outlining shoreline laws specific to UP. This is set by the Washington State Department of Ecology.
