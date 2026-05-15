@@ -48,6 +48,24 @@ Our coalition will be visiting this site throughout the summer to establish a pu
 
 ## Updates
 
+### 2026-05-14
+
+We attended the University Place Park Advisory Commission during their scheduled meeting ([see agenda](https://www.cityofup.com/AgendaCenter/ViewFile/Agenda/_05142026-524?html=true)), where we provided public comment about this proposal. We also provided public comment on the PROS draft plan to encourage inclusion of shoreline access improvements.
+
+Attendees:
+* Gordon McCreary (UP Shoreline Public Access Coalition Leader)
+* Amy Wolfe (UP Park Advisory Commission Chair)
+* Ryan Baltazar (UP Park Advisory Commission Vice Chair)
+* Kristi Jones (UP Park Advisory Commissioner)
+* Nora Flemming de Sandoval (UP Park Advisory Commissioner)
+* Bay Stemp (UP Park Advisory Commissioner)
+* Tony West (UP Operations Manager)
+* Asuka Ludden
+
+No opposition to the intentions of the proposal were raised. There were some concerns that the railroad crossing would need to be improved for public access (either bridge over similar to Saltar's Point Beach in Steilacoom or at-grade crossing similar to Sunnyside Beach Park in Steilacoom or Titlow Beach in Tacoma). Tony was able to confirm for us that the neighbors, even though they have built on the public right-of-way, they won't be able to claim squatters rights on it. Our request for action to the Parks Advisory Commission was to help the city declare intention to provide public access to this site, with the PROS plan being an immediate opportunity for this.
+
+We also suggested [Day Island shore access improvements](/proposals/day-island-micro-park-network) be included in the PROS plan.
+
 ### 2026-04-20
 
 Received official statement from BNSF Railway confirming they have an arrangement with Sunset Beach HOA that allows the residents to control access to the rail crossing.
